@@ -1,8 +1,6 @@
 package edu.upvictoria.poo.lib;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileWritterWrapper {
     private String path;
