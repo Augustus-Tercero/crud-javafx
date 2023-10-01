@@ -1,9 +1,6 @@
 package edu.upvictoria.poo.crud_files;
 
-import edu.upvictoria.poo.crud_files.Scenes.CreateUserScene;
-import edu.upvictoria.poo.crud_files.Scenes.DeleteUserScene;
-import edu.upvictoria.poo.crud_files.Scenes.ModifyUserScene;
-import edu.upvictoria.poo.crud_files.Scenes.UserListScene;
+import edu.upvictoria.poo.crud_files.Scenes.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

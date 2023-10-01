@@ -41,6 +41,20 @@ public class FileContentWrapper {
         return arr;
     }
 
+    public int getStringIndex(String str) {
+        var content = new FileContentWrapper(path).getFileContent();
+        var k = 0;
+        for (var line : content) {
+            var split = line.split(",");
+            if (split[0].equals(str)) {
+                // primera instancia que encuentre será el índice retornado, pero si no hay valores repetidos no importa.
+                break;
+            }
+            k++;
+        }
+        return k;
+    }
+
     public ArrayList<String> getFileContent() {
         var arr = new ArrayList<String>();
         try {
@@ -51,6 +65,15 @@ public class FileContentWrapper {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return arr;
+    }
+
+    public String[] getContentArray() {
+        var content = new FileContentWrapper(path).getFileContent();
+        var arr = new String[content.size()];
+        for (var i = 0; i < content.size(); i++) {
+            arr[i] = content.get(i);
         }
         return arr;
     }

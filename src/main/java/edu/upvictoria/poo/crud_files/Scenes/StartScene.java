@@ -1,5 +1,6 @@
-package edu.upvictoria.poo.crud_files;
+package edu.upvictoria.poo.crud_files.Scenes;
 
+import edu.upvictoria.poo.crud_files.MainFrame;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
