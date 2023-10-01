@@ -1,5 +1,12 @@
 package edu.upvictoria.poo.lib;
 
+import edu.upvictoria.poo.crud_files.Exceptions.EmptyFieldException;
+import edu.upvictoria.poo.crud_files.Exceptions.InvalidEmailException;
+import edu.upvictoria.poo.crud_files.Exceptions.InvalidPhoneNumberException;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 public class User {
     private String username;
     private String firstName;
@@ -11,8 +18,26 @@ public class User {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        // final var emailRegex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+        // final var phoneNumberRegex = "^\\+\\d{12}|\\+\\d{14}$";
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public String[] toArray() {
+        var arr = new String[5];
+        var split = this.toString().split(",");
+        var k = 0;
+        for (var s : split) {
+            arr[k] = s;
+            k++;
+        }
+        return arr;
+    }
+
+    public boolean isEmpty() {
+        return (this.getUsername().isEmpty() || this.getFirstName().isEmpty() || this.getLastName().isEmpty() ||
+                        this.getEmail().isEmpty() || this.getPhoneNumber().isEmpty());
     }
 
     @Override

@@ -1,13 +1,15 @@
 package edu.upvictoria.poo.crud_files.Scenes;
 
+import edu.upvictoria.poo.crud_files.Exceptions.*;
 import edu.upvictoria.poo.crud_files.MainFrame;
+import edu.upvictoria.poo.lib.FileContentWrapper;
+import edu.upvictoria.poo.lib.FileWriterWrapper;
 import edu.upvictoria.poo.lib.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 public class CreateUserScene extends VBox {
@@ -27,11 +29,16 @@ public class CreateUserScene extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(10);
 
-        usernameTxt = new TextField("Enter username");
-        firstNameTxt = new TextField("Enter first name");
-        lastNameTxt = new TextField("Enter last name");
-        emailTxt = new TextField("Enter email");
-        phoneNumberTxt = new TextField("Enter phone number");
+        usernameTxt = new TextField();
+        usernameTxt.setPromptText("Enter username*");
+        firstNameTxt = new TextField();
+        firstNameTxt.setPromptText("Enter first name*");
+        lastNameTxt = new TextField();
+        lastNameTxt.setPromptText("Enter last name*");
+        emailTxt = new TextField();
+        emailTxt.setPromptText("Enter email*");
+        phoneNumberTxt = new TextField();
+        phoneNumberTxt.setPromptText("Enter phone number*");
         saveBtn = new Button("Save");
         backBtn = new Button("Back");
         saveBtn.setOnAction(getEventHandler());
@@ -44,12 +51,17 @@ public class CreateUserScene extends VBox {
         var saveEvent = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                var db = "src/main/resources/db.csv";
+                var writerWrapper = new FileWriterWrapper(db);
                 var user = new User(
-                        usernameTxt.getText(),firstNameTxt.getText(),
-                        lastNameTxt.getText(),emailTxt.getText(),
+                        usernameTxt.getText(), firstNameTxt.getText(),
+                        lastNameTxt.getText(), emailTxt.getText(),
                         phoneNumberTxt.getText()
                 );
-                System.out.println(user);
+                if (!user.isEmpty()) {
+                    writerWrapper.write(user.toString());
+                }
+
                 usernameTxt.setText("");
                 firstNameTxt.setText("");
                 lastNameTxt.setText("");

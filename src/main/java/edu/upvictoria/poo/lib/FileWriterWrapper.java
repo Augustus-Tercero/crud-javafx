@@ -3,16 +3,16 @@ package edu.upvictoria.poo.lib;
 import java.io.*;
 import java.util.ArrayList;
 
-public class FileWritterWrapper {
+public class FileWriterWrapper {
     private String path;
     private File file;
 
     public static void main(String[] args) {
-        var test = new FileWritterWrapper("src/main/resources/Test.txt");
+        var test = new FileWriterWrapper("src/main/resources/Test.txt");
         test.modifyLine(0,"world, hello");
     }
 
-    public FileWritterWrapper(String path) {
+    public FileWriterWrapper(String path) {
         this.path = path;
         this.file = new File(path);
     }
@@ -36,21 +36,16 @@ public class FileWritterWrapper {
         }
     }
 
-    public void write(String[] arr) {
+    public void write(String str) {
         try {
             var fileEmpty = new FileContentWrapper(path).isEmpty();
             var bw = new BufferedWriter(new FileWriter(file, true));
             if (!fileEmpty)
                 bw.newLine();
-            for (var i = 0; i < arr.length; i++) {
-                bw.write(arr[i]);
-                if (i < arr.length - 1) {
-                    bw.write(",");
-                }
-            }
+            bw.write(str.toString());
             bw.flush();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

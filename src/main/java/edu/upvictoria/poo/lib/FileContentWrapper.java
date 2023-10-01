@@ -6,10 +6,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class FileContentWrapper {
     private final String path;
     private final File file;
+
+    public static void main(String[] args) {
+        var m = new FileContentWrapper("src/main/resources/db.csv");
+        System.out.println(m.stringExists("asdasd"));
+    }
 
     public FileContentWrapper(String path) {
         this.path = path;
@@ -39,6 +45,32 @@ public class FileContentWrapper {
             }
         }
         return arr;
+    }
+
+    /*public boolean stringExists(String str) {
+        var content = new FileContentWrapper(path).getFileContent();
+        for (var line : content) {
+            var strToken = new StringTokenizer(line,",");
+            while (strToken.hasMoreTokens()) {
+                if (strToken.nextToken().equals(str)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }*/
+
+    public boolean stringExists(String str) {
+        var content = new FileContentWrapper(path).getFileContent();
+        for (var line : content) {
+            var split = line.split(",");
+            for (var s : split) {
+                if (s.equals(str)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public int getStringIndex(String str) {
