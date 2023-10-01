@@ -26,6 +26,14 @@ public class UserList {
         }
     }
 
+    public ArrayList<String> toArray() {
+        var arr = new ArrayList<String>();
+        for (var user : this.users) {
+            arr.add(user.toString());
+        }
+        return arr;
+    }
+
     public ArrayList<User> getUsers() {
         return users;
     }

@@ -48,27 +48,23 @@ public class CreateUserScene extends VBox {
     }
 
     private static EventHandler<ActionEvent> getEventHandler() {
-        var saveEvent = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                var db = "src/main/resources/db.csv";
-                var writerWrapper = new FileWriterWrapper(db);
-                var user = new User(
-                        usernameTxt.getText(), firstNameTxt.getText(),
-                        lastNameTxt.getText(), emailTxt.getText(),
-                        phoneNumberTxt.getText()
-                );
-                if (!user.isEmpty()) {
-                    writerWrapper.write(user.toString());
-                }
-
-                usernameTxt.setText("");
-                firstNameTxt.setText("");
-                lastNameTxt.setText("");
-                emailTxt.setText("");
-                phoneNumberTxt.setText("");
+        return actionEvent -> {
+            var db = "src/main/resources/db.csv";
+            var writerWrapper = new FileWriterWrapper(db);
+            var user = new User(
+                    usernameTxt.getText(), firstNameTxt.getText(),
+                    lastNameTxt.getText(), emailTxt.getText(),
+                    phoneNumberTxt.getText()
+            );
+            if (!user.isEmpty()) {
+                writerWrapper.write(user.toString());
             }
+
+            usernameTxt.setText("");
+            firstNameTxt.setText("");
+            lastNameTxt.setText("");
+            emailTxt.setText("");
+            phoneNumberTxt.setText("");
         };
-        return saveEvent;
     }
 }
