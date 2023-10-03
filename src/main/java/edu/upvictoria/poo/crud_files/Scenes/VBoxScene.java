@@ -10,8 +10,8 @@ import javafx.scene.control.Label;
 public abstract class VBoxScene extends VBox {
     protected Scene scene;
     protected MainFrame mainFrame;
-    protected static Button backBtn = new Button("Back");
-    protected static Label title = new Label();
+    protected Button backBtn = new Button("Back");
+    protected Label title = new Label();
 
     public VBoxScene(MainFrame mainFrame) {
         this.mainFrame = mainFrame;

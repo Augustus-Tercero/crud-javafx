@@ -12,9 +12,7 @@ public class RegistrationFormScene extends Form {
         super(mainFrame);
         title.setText("User Registration Form");
         saveBtn.setOnAction(saveEvent());
-        var test = new Button("Back");
-        test.setOnAction(e -> mainFrame.switchScenes(0));
-        this.getChildren().addAll(saveBtn,test);
+        this.getChildren().addAll(saveBtn,backBtn);
     }
 
     @Override
