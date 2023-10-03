@@ -1,9 +1,5 @@
 package edu.upvictoria.poo.lib;
 
-import edu.upvictoria.poo.crud_files.Exceptions.EmptyFieldException;
-import edu.upvictoria.poo.crud_files.Exceptions.InvalidEmailException;
-import edu.upvictoria.poo.crud_files.Exceptions.InvalidPhoneNumberException;
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
