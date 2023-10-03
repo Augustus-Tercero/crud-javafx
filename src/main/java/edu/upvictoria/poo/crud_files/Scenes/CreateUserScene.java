@@ -1,8 +1,6 @@
 package edu.upvictoria.poo.crud_files.Scenes;
 
-import edu.upvictoria.poo.crud_files.Exceptions.*;
 import edu.upvictoria.poo.crud_files.MainFrame;
-import edu.upvictoria.poo.lib.FileContentWrapper;
 import edu.upvictoria.poo.lib.FileWriterWrapper;
 import edu.upvictoria.poo.lib.User;
 import javafx.event.ActionEvent;
