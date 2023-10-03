@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class FileContentWrapper {
     private final String path;
@@ -14,7 +13,7 @@ public class FileContentWrapper {
 
     public static void main(String[] args) {
         var m = new FileContentWrapper("src/main/resources/db.csv");
-        System.out.println(m.stringExists("asdasd"));
+        System.out.println(m.isEmpty());
     }
 
     public FileContentWrapper(String path) {
@@ -23,8 +22,7 @@ public class FileContentWrapper {
     }
 
     public boolean isEmpty() {
-        var c = new FileContentWrapper(path).getFileContent();
-        return c.isEmpty();
+        return new FileContentWrapper(path).getFileContent().isEmpty();
     }
 
     public String getFileName() {

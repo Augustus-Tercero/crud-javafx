@@ -3,11 +3,11 @@ package edu.upvictoria.poo.lib;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class UserList {
+public class UserFactory {
     private ArrayList<User> users;
     private String path;
 
-    public UserList(String path) {
+    public UserFactory(String path) {
         this.users = new ArrayList<>();
         this.path = path;
         var content = new FileContentWrapper(this.path).getFileContent();

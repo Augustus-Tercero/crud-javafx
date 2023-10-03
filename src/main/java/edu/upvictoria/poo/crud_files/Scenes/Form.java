@@ -1,31 +1,24 @@
-package edu.upvictoria.poo.crud_files;
+package edu.upvictoria.poo.crud_files.Scenes;
 
+import edu.upvictoria.poo.crud_files.MainFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 
-public abstract class Form extends VBox {
-    private Scene scene = new Scene(this,400,300);
-    private MainFrame mainFrame;
-    private static Button backBtn = new Button("Back");
-    private static Button saveBtn = new Button("Save");
-    private static TextField usernameTxt = new TextField();
-    private static TextField firstNameTxt = new TextField();
-    private static TextField lastNameTxt = new TextField();
-    private static TextField emailTxt = new TextField();
-    private static TextField phoneNumberTxt = new TextField();
+public abstract class Form extends VBoxScene {
+    protected static Button saveBtn = new Button("Save");
+    protected static TextField usernameTxt = new TextField();
+    protected static TextField firstNameTxt = new TextField();
+    protected static TextField lastNameTxt = new TextField();
+    protected static TextField emailTxt = new TextField();
+    protected static TextField phoneNumberTxt = new TextField();
 
     public Form(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
-        this.setAlignment(Pos.CENTER);
-        this.setSpacing(10);
-        this.scene = new Scene(this,400,300);
-        this.getChildren().addAll(usernameTxt,firstNameTxt,lastNameTxt,emailTxt,phoneNumberTxt,saveBtn,backBtn);
-
+        super(mainFrame);
+        this.getChildren().addAll(
+                title,usernameTxt,firstNameTxt,lastNameTxt,emailTxt,phoneNumberTxt
+        );
         usernameTxt.setPromptText("Enter username");
         firstNameTxt.setPromptText("Enter user's first name");
         lastNameTxt.setPromptText("Enter user's last name");
@@ -39,6 +32,11 @@ public abstract class Form extends VBox {
         lastNameTxt.setText("");
         emailTxt.setText("");
         phoneNumberTxt.setText("");
+    }
+
+    public static boolean isAnyFieldEmpty() {
+        return usernameTxt.getText().isEmpty() || firstNameTxt.getText().isEmpty() || lastNameTxt.getText().isEmpty()
+                || emailTxt.getText().isEmpty() || phoneNumberTxt.getText().isEmpty();
     }
 
     public abstract EventHandler<ActionEvent> saveEvent();
