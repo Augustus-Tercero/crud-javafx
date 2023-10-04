@@ -1,11 +1,11 @@
 package edu.upvictoria.poo.lib;
 
 public class User {
-    private String username;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
+    public String username;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public String phoneNumber;
 
     public User(String username, String firstName, String lastName, String email, String phoneNumber) {
         this.username = username;

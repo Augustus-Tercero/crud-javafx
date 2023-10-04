@@ -31,6 +31,16 @@ public class FileWriterWrapper {
         }
     }
 
+    public void overWrite(String str) {
+        try {
+            var bw = new BufferedWriter(new FileWriter(path));
+            bw.write(str);
+            bw.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void write(String str) {
         try {
             var fileEmpty = new FileContentWrapper(path).isEmpty();

@@ -4,11 +4,10 @@ import edu.upvictoria.poo.crud_files.MainFrame;
 import edu.upvictoria.poo.lib.FileWriterWrapper;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 
-public class RegistrationFormScene extends Form {
+public class CreateScene extends Form {
 
-    public RegistrationFormScene(MainFrame mainFrame) {
+    public CreateScene(MainFrame mainFrame) {
         super(mainFrame);
         title.setText("User Registration Form");
         saveBtn.setOnAction(saveEvent());

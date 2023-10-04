@@ -1,8 +1,6 @@
 package edu.upvictoria.poo.crud_files;
 
-import edu.upvictoria.poo.crud_files.Scenes.MainScene;
-import edu.upvictoria.poo.crud_files.Scenes.RegistrationFormScene;
-import edu.upvictoria.poo.crud_files.Scenes.UserDeletionScene;
+import edu.upvictoria.poo.crud_files.Scenes.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,8 +8,10 @@ public class MainFrame extends Application {
     public final String db_path = "src/main/resources/db.csv";
     private Stage stage;
     private MainScene homeScene;
-    private RegistrationFormScene registrationScene;
-    private UserDeletionScene deletionScene;
+    private CreateScene registrationScene;
+    private DeleteScene deletionScene;
+    private UpdateScene updateScene;
+    private ListScene listScene;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -19,8 +19,10 @@ public class MainFrame extends Application {
         this.stage.setTitle("CRUD");
 
         this.homeScene = new MainScene(this);
-        this.registrationScene = new RegistrationFormScene(this);
-        this.deletionScene = new UserDeletionScene(this);
+        this.registrationScene = new CreateScene(this);
+        this.deletionScene = new DeleteScene(this);
+        this.updateScene = new UpdateScene(this);
+        this.listScene = new ListScene(this);
 
         this.stage.setScene(homeScene.getScene());
         this.stage.show();
@@ -31,6 +33,8 @@ public class MainFrame extends Application {
             case 0 -> stage.setScene(homeScene.getScene());
             case 1 -> stage.setScene(registrationScene.getScene());
             case 2 -> stage.setScene(deletionScene.getScene());
+            case 3 -> stage.setScene(updateScene.getScene());
+            case 4 -> stage.setScene(listScene.getScene());
         }
     }
 

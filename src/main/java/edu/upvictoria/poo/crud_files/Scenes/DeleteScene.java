@@ -6,10 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class UserDeletionScene extends SelectUserScene {
+public class DeleteScene extends SelectUserScene {
     private static Button saveBtn = new Button("Save");
 
-    public UserDeletionScene(MainFrame mainFrame) {
+    public DeleteScene(MainFrame mainFrame) {
         super(mainFrame);
         title.setText("Delete User");
         this.getChildren().add(saveBtn);
